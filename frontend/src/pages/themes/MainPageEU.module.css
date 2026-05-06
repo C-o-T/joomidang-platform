@@ -1,0 +1,366 @@
+/* EU 테마 - Zalando / ASOS 에디토리얼 스타일
+   미니멀 헤더 / 풀폭 에디토리얼 히어로 / 매거진 믹스 그리드 / 에디토리얼 텍스트 블록 */
+
+.wrapper { background: #fafaf8; min-height: 100vh; font-family: 'Georgia', serif; }
+
+/* ── 최상단 배너 ─────────────────────────────────────────────── */
+.top_banner {
+    background: #1a1a1a; color: rgba(255,255,255,0.8);
+    text-align: center; padding: 8px 20px; font-size: 12px;
+    letter-spacing: 0.3px; display: flex; justify-content: center;
+    align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.tb_sep { color: rgba(255,255,255,0.3); }
+
+/* ── 미니멀 헤더 ─────────────────────────────────────────────── */
+.minimal_header {
+    background: #fff; border-bottom: 1px solid #e8e8e8;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 32px; height: 64px; position: sticky; top: 0; z-index: 100;
+}
+.mh_left { display: flex; align-items: center; gap: 0; }
+.mh_nav_btn {
+    padding: 22px 16px; border: none; background: none;
+    font-size: 13px; font-family: inherit; letter-spacing: 0.5px;
+    color: #444; cursor: pointer; text-transform: uppercase;
+    border-bottom: 2px solid transparent; transition: all 0.2s;
+}
+.mh_nav_btn:hover { color: #1a1a1a; border-bottom-color: #1a1a1a; }
+.mh_sale { color: #cc0000 !important; }
+.mh_sale:hover { border-bottom-color: #cc0000 !important; }
+
+.mh_logo {
+    display: flex; align-items: center; gap: 8px;
+    cursor: pointer; text-decoration: none;
+    position: absolute; left: 50%; transform: translateX(-50%);
+}
+.logo_mark {
+    width: 36px; height: 36px; background: #1a1a1a; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 700; color: #fff;
+}
+.logo_text { font-size: 16px; font-weight: 700; letter-spacing: 3px; color: #1a1a1a; font-family: sans-serif; }
+
+.mh_right { display: flex; align-items: center; gap: 4px; }
+.mh_icon_btn {
+    padding: 8px 10px; border: none; background: none;
+    font-size: 16px; cursor: pointer; border-radius: 4px;
+    transition: background 0.15s; position: relative;
+}
+.mh_icon_btn:hover { background: #f5f5f5; }
+.mh_cart_count {
+    position: absolute; top: 2px; right: 2px;
+    background: #1a1a1a; color: #fff; border-radius: 50%;
+    width: 16px; height: 16px; font-size: 9px; font-family: sans-serif;
+    display: flex; align-items: center; justify-content: center;
+}
+
+/* ── 에디토리얼 히어로 ───────────────────────────────────────── */
+.editorial_hero {
+    background: #f0ebe3; min-height: 500px;
+    position: relative; overflow: hidden;
+}
+.eh_bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #f0ebe3 50%, #e8e0d5 100%);
+}
+.eh_content {
+    position: relative; z-index: 1;
+    max-width: 1200px; margin: 0 auto; padding: 60px 40px;
+    display: flex; align-items: center; gap: 60px;
+}
+.eh_text { flex: 1; max-width: 540px; }
+.eh_issue {
+    font-size: 11px; color: #888; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 16px; font-family: sans-serif;
+}
+.eh_title {
+    font-size: 44px; font-weight: 400; color: #1a1a1a; line-height: 1.2;
+    margin-bottom: 16px; letter-spacing: -0.5px; white-space: pre-line;
+}
+.eh_sub { font-size: 16px; color: #555; line-height: 1.7; margin-bottom: 20px; }
+.eh_tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; }
+.eh_tags span {
+    font-size: 12px; color: #888; font-family: sans-serif;
+    background: rgba(255,255,255,0.6); padding: 4px 12px; border-radius: 12px;
+    border: 1px solid #e0e0e0;
+}
+.eh_btn {
+    display: inline-block; background: #1a1a1a; color: #fff;
+    border: none; padding: 14px 32px; font-size: 14px; font-family: sans-serif;
+    letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+    transition: all 0.2s;
+}
+.eh_btn:hover { background: #333; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+
+.eh_products { display: flex; flex-direction: column; gap: 20px; flex-shrink: 0; }
+.eh_prod_card {
+    background: #fff; padding: 20px; cursor: pointer;
+    transition: all 0.2s; min-width: 160px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.eh_prod_card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12); transform: translateY(-2px); }
+.epc_offset { margin-top: 24px; }
+.epc_img {
+    font-size: 52px; text-align: center; margin-bottom: 12px;
+    height: 80px; display: flex; align-items: center; justify-content: center;
+}
+.epc_info { text-align: center; }
+.epc_name { font-size: 13px; color: #1a1a1a; margin-bottom: 4px; font-family: sans-serif; }
+.epc_price { font-size: 14px; font-weight: 700; color: #1a1a1a; font-family: sans-serif; }
+
+/* ── 에디토리얼 섹션 ──────────────────────────────────────────── */
+.edit_section { max-width: 1200px; margin: 40px auto; padding: 0 24px; }
+
+.es_head {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 24px; flex-wrap: wrap; border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 16px;
+}
+.es_tabs { display: flex; align-items: center; gap: 0; }
+.et_btn {
+    padding: 10px 20px; border: none; background: none;
+    font-size: 14px; font-family: inherit; color: #888; cursor: pointer;
+    border-bottom: 2px solid transparent; transition: all 0.2s;
+    position: relative; letter-spacing: 0.3px;
+}
+.et_btn:hover { color: #1a1a1a; }
+.et_active { color: #1a1a1a; border-bottom-color: #1a1a1a; font-weight: 600; }
+.et_dot {
+    width: 6px; height: 6px; background: #cc0000; border-radius: 50%;
+    position: absolute; top: 8px; right: 8px;
+}
+
+.es_filters { display: flex; gap: 6px; flex-wrap: wrap; }
+.es_filter_pill {
+    padding: 5px 14px; border: 1px solid #e0e0e0; border-radius: 20px;
+    background: #fff; font-size: 12px; font-family: sans-serif;
+    color: #555; cursor: pointer; transition: all 0.15s;
+}
+.es_filter_pill:hover, .es_pill_active {
+    background: #1a1a1a; color: #fff; border-color: #1a1a1a;
+}
+
+.es_right { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.es_count { font-size: 12px; color: #888; font-family: sans-serif; white-space: nowrap; }
+.es_sort {
+    font-size: 13px; padding: 6px 12px; border: 1px solid #e0e0e0;
+    border-radius: 4px; cursor: pointer; font-family: sans-serif;
+    background: #fff;
+}
+
+/* ── 매거진 믹스 그리드 ──────────────────────────────────────── */
+.magazine_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+.mag_card {
+    cursor: pointer;
+    background: #fff;
+    transition: all 0.2s;
+}
+.mag_card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+
+/* 큰 카드는 2컬럼 차지 */
+.mag_large {
+    grid-column: span 2;
+}
+
+.mc_img_wrap {
+    position: relative; overflow: hidden;
+    background: #f5f0eb;
+}
+.mc_img {
+    height: 220px; display: flex; align-items: center; justify-content: center;
+    font-size: 72px; transition: transform 0.3s;
+}
+.mag_large .mc_img { height: 320px; font-size: 96px; }
+.mag_card:hover .mc_img { transform: scale(1.03); }
+
+.mc_overlay {
+    position: absolute; inset: 0; background: rgba(0,0,0,0.25);
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    animation: fadeIn 0.15s ease;
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.mc_quick {
+    background: #fff; color: #1a1a1a; border: none;
+    padding: 10px 22px; font-size: 13px; letter-spacing: 0.5px;
+    text-transform: uppercase; cursor: pointer; font-family: sans-serif;
+    transition: background 0.15s;
+}
+.mc_quick:hover { background: #f5f5f5; }
+.mc_wishlist {
+    background: #fff; border: none; width: 38px; height: 38px;
+    border-radius: 50%; font-size: 16px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+}
+
+.mc_sale_tag {
+    position: absolute; top: 12px; left: 12px;
+    background: #cc0000; color: #fff; font-size: 10px; font-weight: 700;
+    padding: 3px 8px; letter-spacing: 1px; font-family: sans-serif;
+}
+.mc_new_tag {
+    position: absolute; top: 12px; right: 12px;
+    background: #1a1a1a; color: #fff; font-size: 10px; font-weight: 700;
+    padding: 3px 8px; letter-spacing: 1px; font-family: sans-serif;
+}
+
+.mc_body { padding: 14px 12px; }
+.mc_category { font-size: 10px; color: #999; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; font-family: sans-serif; }
+.mc_name { font-size: 15px; color: #1a1a1a; margin-bottom: 6px; line-height: 1.4; }
+.mc_price_row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+.mc_price { font-size: 15px; color: #1a1a1a; font-family: sans-serif; }
+.mc_orig { font-size: 13px; color: #bbb; text-decoration: line-through; font-family: sans-serif; }
+.mc_spec { font-size: 12px; color: #aaa; font-family: sans-serif; }
+.mc_desc { font-size: 13px; color: #666; line-height: 1.6; margin-top: 8px; }
+
+/* ── 에디토리얼 텍스트 블록 ──────────────────────────────────── */
+.editorial_block {
+    background: #1a1a1a; padding: 64px 24px; margin: 40px 0;
+}
+.eb_inner { max-width: 600px; margin: 0 auto; text-align: center; }
+.eb_label { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; font-family: sans-serif; }
+.eb_title { font-size: 32px; font-weight: 400; color: #fff; margin-bottom: 20px; line-height: 1.3; }
+.eb_body { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.9; margin-bottom: 28px; }
+.eb_btn {
+    background: transparent; color: rgba(255,255,255,0.8);
+    border: 1px solid rgba(255,255,255,0.4); padding: 12px 28px;
+    font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+    cursor: pointer; font-family: sans-serif; transition: all 0.2s;
+}
+.eb_btn:hover { color: #fff; border-color: #fff; }
+
+/* ── 브랜드 스트립 ───────────────────────────────────────────── */
+.brand_strip { background: #fff; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; padding: 24px 24px; }
+.bs_label { text-align: center; font-size: 11px; color: #aaa; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; font-family: sans-serif; }
+.bs_logos { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; align-items: center; }
+.bs_logo { font-size: 13px; font-weight: 700; color: #bbb; letter-spacing: 2px; font-family: sans-serif; }
+
+/* ── 지속 가능성 ─────────────────────────────────────────────── */
+.sustain_sec {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0; background: #f5f0eb; border-top: 1px solid #e8e0d5;
+}
+.sustain_item { padding: 36px 40px; text-align: center; border-right: 1px solid #e8e0d5; }
+.sustain_item:last-child { border-right: none; }
+.si_icon { font-size: 32px; display: block; margin-bottom: 12px; }
+.si_title { font-size: 16px; color: #1a1a1a; margin-bottom: 8px; }
+.si_desc { font-size: 13px; color: #666; line-height: 1.7; font-family: sans-serif; }
+
+/* ── 푸터 ────────────────────────────────────────────────────── */
+.footer { background: #1a1a1a; color: rgba(255,255,255,0.6); padding: 48px 40px 24px; }
+.footer_grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 40px; max-width: 1200px; margin: 0 auto 40px; }
+.footer_brand {}
+.fb_logo { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.fb_mark { width: 32px; height: 32px; background: #fff; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: #1a1a1a; }
+.fb_name { font-size: 14px; font-weight: 700; letter-spacing: 3px; color: #fff; font-family: sans-serif; }
+.fb_tagline { font-size: 13px; line-height: 1.7; margin-bottom: 16px; max-width: 220px; }
+.fb_social { display: flex; gap: 12px; flex-wrap: wrap; }
+.fbs_item { font-size: 12px; cursor: pointer; font-family: sans-serif; }
+.fbs_item:hover { color: #fff; text-decoration: underline; }
+.f_head { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 14px; letter-spacing: 0.5px; font-family: sans-serif; }
+.f_link { font-size: 13px; cursor: pointer; margin-bottom: 8px; font-family: sans-serif; }
+.f_link:hover { color: #fff; }
+.f_bottom {
+    border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px; max-width: 1200px; margin: 0 auto;
+}
+.f_copy { font-size: 12px; font-family: sans-serif; }
+.f_legal_links { display: flex; gap: 20px; flex-wrap: wrap; }
+.f_legal_links span { font-size: 12px; cursor: pointer; font-family: sans-serif; }
+.f_legal_links span:hover { color: #fff; }
+
+@media (max-width: 1024px) {
+    .magazine_grid { grid-template-columns: repeat(3, 1fr); }
+    .mag_large { grid-column: span 2; }
+}
+@media (max-width: 768px) {
+    .minimal_header { padding: 0 16px; }
+    .mh_left { display: none; }
+    .mh_logo { position: static; transform: none; }
+    .eh_content { flex-direction: column; padding: 32px 20px; }
+    .eh_title { font-size: 28px; }
+    .eh_products { flex-direction: row; }
+    .magazine_grid { grid-template-columns: repeat(2, 1fr); }
+    .mag_large { grid-column: span 2; }
+    .sustain_sec { grid-template-columns: 1fr; }
+    .sustain_item { border-right: none; border-bottom: 1px solid #e8e0d5; }
+    .footer_grid { grid-template-columns: 1fr 1fr; }
+    .edit_section { padding: 0 16px; }
+}
+@media (max-width: 480px) {
+    .magazine_grid { grid-template-columns: 1fr; }
+    .mag_large { grid-column: span 1; }
+    .footer_grid { grid-template-columns: 1fr; }
+    .f_bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* ── 검색 바 ─────────────────────────────────────────────────── */
+.search_bar_wrap {
+    background: #fff; border-bottom: 1px solid #e8e0d5;
+    padding: 12px 40px; display: flex; align-items: center; gap: 10px;
+}
+.search_bar_input {
+    flex: 1; border: none; border-bottom: 1px solid #1a1a1a; outline: none;
+    font-size: 16px; padding: 6px 0; background: transparent;
+}
+.search_clear { background: none; border: none; font-size: 20px; cursor: pointer; color: #999; }
+.search_close { background: none; border: 1px solid #1a1a1a; padding: 6px 14px; font-size: 12px; cursor: pointer; }
+.search_close:hover { background: #1a1a1a; color: #fff; }
+
+/* ── 헤더 nav 활성 상태 ─────────────────────────────────────── */
+.mh_nav_active { text-decoration: underline; }
+.mh_icon_active { background: #f0ede8 !important; }
+
+/* ── 위시리스트 on 상태 ────────────────────────────────────── */
+.mc_wl_on { background: #fff5f5 !important; }
+
+/* ── Quick View 모달 ────────────────────────────────────────── */
+.qv_overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000;
+    display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.qv_modal {
+    background: #fff; border-radius: 4px; max-width: 640px; width: 100%;
+    display: flex; gap: 28px; padding: 32px; position: relative;
+    max-height: 90vh; overflow-y: auto;
+}
+.qv_close {
+    position: absolute; top: 12px; right: 16px; background: none; border: none;
+    font-size: 22px; cursor: pointer; color: #888; line-height: 1;
+}
+.qv_close:hover { color: #1a1a1a; }
+.qv_img { font-size: 80px; flex-shrink: 0; display: flex; align-items: center; }
+.qv_info { flex: 1; }
+.qv_category { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 6px; }
+.qv_name { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.qv_origin { font-size: 13px; color: #666; margin-bottom: 2px; }
+.qv_brewery { font-size: 13px; color: #888; margin-bottom: 6px; }
+.qv_spec { font-size: 12px; color: #999; margin-bottom: 8px; }
+.qv_heritage { font-size: 11px; color: #b48a3a; background: #fdf6e7; padding: 3px 10px; border-radius: 10px; display: inline-block; margin-bottom: 12px; }
+.qv_price_row { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.qv_price { font-size: 22px; font-weight: 700; }
+.qv_sale { font-size: 12px; background: #cc0000; color: #fff; padding: 3px 8px; border-radius: 3px; }
+.qv_actions { display: flex; flex-direction: column; gap: 8px; }
+.qv_cart { padding: 13px; background: #1a1a1a; color: #fff; border: none; font-size: 14px; font-weight: 600; cursor: pointer; }
+.qv_cart:hover { background: #333; }
+.qv_detail { padding: 12px; background: #fff; color: #1a1a1a; border: 1px solid #1a1a1a; font-size: 14px; cursor: pointer; }
+.qv_detail:hover { background: #f5f5f5; }
+
+
+/* ── Terroir signalling (Whisky Exchange RCA: region + heritage) ── */
+.mc_terroir { font-size:12px; color:#888; letter-spacing:0.3px; margin:3px 0; }
+.mc_heritage_eu { font-size:11px; color:#5a5a5a; font-style:italic; margin:2px 0; }
+.mc_tasting_eu { margin-top:8px; font-size:12px; color:#555; line-height:1.55; }
+.mc_tasting_eu p { margin:2px 0; }
+.mc_tasting_eu em { color:#222; font-style:normal; font-weight:600; }
+
+/* ── Ingredients (Terroir proof) ── */
+.mc_ingredients_eu {
+    font-size:11px; color:#777; margin:2px 0; letter-spacing:0.2px;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}

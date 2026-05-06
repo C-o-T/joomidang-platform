@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.joomidang.backend.product.mapper.ProductMapper">
+
+    <!--
+        DB 컬럼명과 DTO 필드명이 다른 경우 column에 실제 DB 컬럼명을 씀
+        예) DB: name_ko → DTO: name / DB: price_krw → DTO: price
+    -->
+    <resultMap id="product" type="com.joomidang.backend.product.dto.ProductDTO">
+        <id     column="id"                  property="id" />
+        <result column="seller_id"           property="sellerId" />
+        <!-- 상품명 다국어 -->
+        <result column="name_ko"             property="name" />
+        <result column="name_en"             property="nameEn" />
+        <result column="name_ja"             property="nameJa" />
+        <result column="name_zh"             property="nameZh" />
+        <result column="category"            property="category" />
+        <!-- 설명 -->
+        <result column="description_ko"      property="description" />
+        <result column="description_en"      property="descriptionEn" />
+        <!-- 가격 -->
+        <result column="price_krw"           property="price" />
+        <result column="original_price_krw"  property="originalPrice" />
+        <result column="discount"            property="discount" />
+        <!-- 재고/물류 -->
+        <result column="stock"               property="stock" />
+        <result column="min_order_quantity"  property="minOrderQuantity" />
+        <result column="weight_gram"         property="weightGram" />
+        <result column="customs_hs_code"     property="customsHsCode" />
+        <!-- 원재료 -->
+        <result column="ingredients_ko"      property="ingredients" />
+        <result column="ingredients_en"      property="ingredientsEn" />
+        <result column="thumbnail_url"       property="thumbnailUrl" />
+        <!-- 주류 정보 -->
+        <result column="alcohol"             property="alcoholPercentage" />
+        <result column="volume"              property="volumeMl" />
+        <!-- 양조장 다국어 -->
+        <result column="brewery_ko"          property="brewery" />
+        <result column="brewery_en"          property="breweryEn" />
+        <result column="brewery_ja"          property="breweryJa" />
+        <result column="brewery_zh"          property="breweryZh" />
+        <!-- 산지 -->
+        <result column="region_ko"           property="region" />
+        <result column="region_en"           property="regionEn" />
+        <!-- 유산/문화재 -->
+        <result column="heritage_ko"         property="heritage" />
+        <result column="heritage_en"         property="heritageEn" />
+        <!-- 테이스팅 노트 (JSON) -->
+        <result column="tasting_ko"          property="tastingKo" />
+        <result column="tasting_en"          property="tastingEn" />
+        <result column="tasting_ja"          property="tastingJa" />
+        <result column="tasting_zh"          property="tastingZh" />
+        <!-- 페어링 (JSON array) -->
+        <result column="pairing"             property="pairing" />
+        <result column="pairing_en"          property="pairingEn" />
+        <!-- 서양 주종 비교 -->
+        <result column="bridge_en"           property="bridgeEn" />
+        <result column="status"              property="status" />
+        <result column="created_at"          property="createdAt" />
+        <result column="updated_at"          property="updatedAt" />
+    </resultMap>
+
+    <!-- 상품 등록 -->
+    <insert id="insertProduct">
+        INSERT INTO products (
+            seller_id
+            , name_ko, name_en, name_ja, name_zh
+            , category
+            , description_ko, description_en
+            , price_krw, original_price_krw, discount
+            , stock, min_order_quantity, weight_gram, customs_hs_code
+            , ingredients_ko, ingredients_en
+            , alcohol, volume
+            , brewery_ko, brewery_en, brewery_ja, brewery_zh
+            , region_ko, region_en
+            , heritage_ko, heritage_en
+            , tasting_ko, tasting_en, tasting_ja, tasting_zh
+            , pairing, pairing_en, bridge_en
+        ) VALUES (
+            #{sellerId}
+            , #{name}, #{nameEn}, #{nameJa}, #{nameZh}
+            , #{category}
+            , #{description}, #{descriptionEn}
+            , #{price}, #{originalPrice}, IFNULL(#{discount}, 0)
+            , #{stock}, IFNULL(#{minOrderQuantity}, 1), #{weightGram}, #{customsHsCode}
+            , #{ingredients}, #{ingredientsEn}
+            , #{alcoholPercentage}, #{volumeMl}
+            , #{brewery}, #{breweryEn}, #{breweryJa}, #{breweryZh}
+            , #{region}, #{regionEn}
+            , #{heritage}, #{heritageEn}
+            , #{tastingKo}, #{tastingEn}, #{tastingJa}, #{tastingZh}
+            , #{pairing}, #{pairingEn}, #{bridgeEn}
+        )
+    </insert>
+
+    <!-- 상품 단건 조회 -->
+    <select id="getProductById" resultMap="product">
+        SELECT id, seller_id
+             , name_ko, name_en, name_ja, name_zh
+             , category
+             , description_ko, description_en
+             , price_krw, original_price_krw, discount
+             , stock, weight_gram, customs_hs_code
+             , ingredients_ko, ingredients_en
+             , thumbnail_url, alcohol, volume, status
+             , brewery_ko, brewery_en, brewery_ja, brewery_zh
+             , region_ko, region_en
+             , heritage_ko, heritage_en
+             , tasting_ko, tasting_en, tasting_ja, tasting_zh
+             , pairing, pairing_en, bridge_en
+             , created_at
+        FROM products
+        WHERE id = #{id}
+          AND deleted_at IS NULL
+    </select>
+
+    <!-- 전체 상품 목록 조회 (ACTIVE만) -->
+    <select id="getProductList" resultMap="product">
+        SELECT id, seller_id
+             , name_ko, name_en, name_ja, name_zh
+             , category
+             , price_krw, original_price_krw, discount
+             , stock, alcohol, volume
+             , thumbnail_url, status
+             , brewery_ko, brewery_en
+             , region_ko, region_en
+             , heritage_ko, heritage_en
+             , created_at
+        FROM products
+        WHERE status = 'ACTIVE'
+          AND deleted_at IS NULL
+        ORDER BY created_at DESC
+    </select>
+
+    <!-- 판매자별 상품 목록 조회 -->
+    <select id="getProductListBySellerId" resultMap="product">
+        SELECT id, seller_id
+             , name_ko, name_en, name_ja, name_zh
+             , category
+             , price_krw, original_price_krw, discount
+             , stock, alcohol, volume, status
+             , created_at
+        FROM products
+        WHERE seller_id = #{sellerId}
+          AND deleted_at IS NULL
+        ORDER BY created_at DESC
+    </select>
+
+    <!-- 상품 수정 -->
+    <update id="updateProduct">
+        UPDATE products
+        SET name_ko            = #{name}
+          , name_en            = #{nameEn}
+          , name_ja            = #{nameJa}
+          , name_zh            = #{nameZh}
+          , category           = #{category}
+          , description_ko     = #{description}
+          , description_en     = #{descriptionEn}
+          , price_krw          = #{price}
+          , original_price_krw = #{originalPrice}
+          , discount           = IFNULL(#{discount}, 0)
+          , stock              = #{stock}
+          , weight_gram        = #{weightGram}
+          , customs_hs_code    = #{customsHsCode}
+          , ingredients_ko     = #{ingredients}
+          , ingredients_en     = #{ingredientsEn}
+          , alcohol            = #{alcoholPercentage}
+          , volume             = #{volumeMl}
+          , brewery_ko         = #{brewery}
+          , brewery_en         = #{breweryEn}
+          , brewery_ja         = #{breweryJa}
+          , brewery_zh         = #{breweryZh}
+          , region_ko          = #{region}
+          , region_en          = #{regionEn}
+          , heritage_ko        = #{heritage}
+          , heritage_en        = #{heritageEn}
+          , tasting_ko         = #{tastingKo}
+          , tasting_en         = #{tastingEn}
+          , tasting_ja         = #{tastingJa}
+          , tasting_zh         = #{tastingZh}
+          , pairing            = #{pairing}
+          , pairing_en         = #{pairingEn}
+          , bridge_en          = #{bridgeEn}
+          , status             = #{status}
+        WHERE id = #{id}
+          AND deleted_at IS NULL
+    </update>
+
+    <!-- 상품 소프트 삭제 (deleted_at에 현재 시각 기록) -->
+    <update id="deleteProduct">
+        UPDATE products
+        SET deleted_at = NOW()
+        WHERE id = #{id}
+    </update>
+
+    <!-- 재고 감소 (주문 생성 시 호출) -->
+    <update id="decreaseStock">
+        UPDATE products
+        SET stock = stock - #{quantity}
+        WHERE id = #{productId}
+          AND stock >= #{quantity}
+          AND deleted_at IS NULL
+    </update>
+
+    <!-- 전체 상품 목록 조회 (어드민용 - 상태 무관, 삭제된 것 제외) -->
+    <select id="getProductListForAdmin" resultMap="product">
+        SELECT id, seller_id
+             , name_ko, name_en
+             , category
+             , price_krw, stock, alcohol, volume
+             , thumbnail_url, status
+             , created_at
+        FROM products
+        WHERE deleted_at IS NULL
+        ORDER BY created_at DESC
+    </select>
+
+    <!-- 상품 상태만 변경 (어드민: ACTIVE / REJECTED / INACTIVE) -->
+    <update id="updateProductStatus">
+        UPDATE products
+        SET status = #{status}
+        WHERE id = #{id}
+          AND deleted_at IS NULL
+    </update>
+
+</mapper>

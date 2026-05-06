@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.joomidang.backend.order.mapper.OrderMapper">
+
+    <resultMap id="order" type="com.joomidang.backend.order.dto.OrderDTO">
+        <id     column="id"               property="id" />
+        <result column="user_id"          property="userId" />
+        <result column="seller_id"        property="sellerId" />
+        <result column="product_price"    property="productPrice" />
+        <result column="shipping_fee"     property="shippingFee" />
+        <result column="total_price"      property="totalPrice" />
+        <result column="currency"         property="currency" />
+        <result column="exchange_rate"    property="exchangeRate" />
+        <result column="receiver_name"    property="receiverName" />
+        <result column="receiver_phone"   property="receiverPhone" />
+        <result column="shipping_country" property="shippingCountry" />
+        <result column="shipping_zip"     property="shippingZip" />
+        <result column="shipping_address" property="shippingAddress" />
+        <result column="consumer_memo"    property="consumerMemo" />
+        <result column="status"           property="status" />
+        <result column="created_at"       property="createdAt" />
+        <result column="updated_at"       property="updatedAt" />
+    </resultMap>
+
+    <!-- 주문 생성 -->
+    <insert id="insertOrder" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO orders (
+            user_id
+            , seller_id
+            , product_price
+            , shipping_fee
+            , total_price
+            , currency
+            , exchange_rate
+            , receiver_name
+            , receiver_phone
+            , shipping_country
+            , shipping_zip
+            , shipping_address
+            , consumer_memo
+        ) VALUES (
+            #{userId}
+            , #{sellerId}
+            , #{productPrice}
+            , IFNULL(#{shippingFee}, 0)
+            , #{totalPrice}
+            , IFNULL(#{currency}, 'USD')
+            , #{exchangeRate}
+            , #{receiverName}
+            , #{receiverPhone}
+            , #{shippingCountry}
+            , #{shippingZip}
+            , #{shippingAddress}
+            , #{consumerMemo}
+        )
+    </insert>
+
+    <!-- 주문 단건 조회 -->
+    <select id="getOrderById" resultMap="order">
+        SELECT id
+             , user_id
+             , seller_id
+             , product_price
+             , shipping_fee
+             , total_price
+             , currency
+             , exchange_rate
+             , receiver_name
+             , receiver_phone
+             , shipping_country
+             , shipping_zip
+             , shipping_address
+             , consumer_memo
+             , status
+             , created_at
+        FROM orders
+        WHERE id = #{id}
+    </select>
+
+    <!-- 사용자별 주문 목록 조회 -->
+    <select id="getOrderListByUserId" resultMap="order">
+        SELECT id
+             , user_id
+             , seller_id
+             , product_price
+             , shipping_fee
+             , total_price
+             , currency
+             , status
+             , created_at
+        FROM orders
+        WHERE user_id = #{userId}
+        ORDER BY created_at DESC
+    </select>
+
+    <!-- 주문 상태 변경 -->
+    <update id="updateOrderStatus">
+        UPDATE orders
+        SET status = #{status}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

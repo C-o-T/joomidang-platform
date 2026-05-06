@@ -1,0 +1,296 @@
+/* CN 테마 - 淘宝/京东 스타일
+   빨간 검색헤더 / 카테고리 아이콘 그리드 / 플래시세일 / 라이브쇼핑 / 조밀 상품 그리드 */
+
+.wrapper { background: #f5f5f5; min-height: 100vh; font-size: 13px; }
+
+/* ── 빨간 검색 헤더 ──────────────────────────────────────────── */
+.red_header { background: #cc0000; }
+
+.header_top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 6px 24px; font-size: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.logo_area { display: flex; align-items: center; gap: 10px; }
+.logo_cn { font-size: 24px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+.logo_sub { font-size: 11px; color: rgba(255,255,255,0.8); }
+.header_links { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.85); }
+.header_links span { cursor: pointer; }
+.header_links span:hover { color: #fff; text-decoration: underline; }
+
+.search_area { padding: 14px 24px; }
+.search_box { display: flex; max-width: 700px; }
+.search_input {
+    flex: 1; padding: 11px 16px; border: none; border-radius: 0;
+    font-size: 14px; outline: none;
+    border-top: 2px solid #ff6000; border-bottom: 2px solid #ff6000;
+    border-left: 2px solid #ff6000;
+}
+.search_btn {
+    background: #ff6000; color: #fff; border: none;
+    padding: 11px 28px; font-size: 16px; font-weight: 700;
+    cursor: pointer; transition: opacity 0.15s;
+}
+.search_btn:hover { opacity: 0.9; }
+.search_hot { display: flex; align-items: center; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
+.sh_label { font-size: 12px; color: rgba(255,255,255,0.7); }
+.sh_tag {
+    font-size: 12px; color: rgba(255,255,255,0.85); cursor: pointer;
+    padding: 2px 8px; background: rgba(255,255,255,0.1); border-radius: 10px;
+}
+.sh_tag:hover { background: rgba(255,255,255,0.2); color: #fff; }
+
+.header_nav {
+    display: flex; align-items: center; padding: 0 24px;
+    background: #a80000; overflow-x: auto; gap: 0;
+}
+.hn_btn {
+    padding: 9px 14px; border: none; background: transparent;
+    color: rgba(255,255,255,0.85); font-size: 13px;
+    cursor: pointer; white-space: nowrap; transition: all 0.15s;
+    border-bottom: 2px solid transparent;
+}
+.hn_btn:hover { color: #fff; }
+.hn_active { color: #fff; border-bottom-color: #ff6000; font-weight: 700; }
+.hn_sep { flex: 1; }
+.hn_special {
+    padding: 9px 14px; border: none; background: transparent;
+    color: #ffd700; font-size: 13px; font-weight: 700;
+    cursor: pointer; white-space: nowrap;
+}
+.hn_special:hover { text-decoration: underline; }
+
+/* ── 활동 배너 ───────────────────────────────────────────────── */
+.activity_banner {
+    background: #fff3e0; border-bottom: 1px solid #ffe0b2;
+    padding: 8px 24px; display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 8px;
+}
+.ab_left { display: flex; align-items: center; gap: 8px; }
+.ab_tag { background: #cc0000; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 2px; }
+.ab_text { font-size: 13px; color: #333; }
+.ab_right { display: flex; gap: 12px; font-size: 12px; color: #666; }
+.ab_dot { color: #ccc; }
+
+/* ── 카테고리 아이콘 그리드 ──────────────────────────────────── */
+.cat_grid_sec { background: #fff; padding: 16px 24px; margin-top: 8px; }
+.cat_grid {
+    display: grid; grid-template-columns: repeat(10, 1fr); gap: 8px;
+}
+.cat_icon_item {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    cursor: pointer; padding: 8px 4px; border-radius: 8px;
+    transition: background 0.15s;
+}
+.cat_icon_item:hover { background: #fff5f5; }
+.cat_icon_circle {
+    width: 54px; height: 54px; border-radius: 50%;
+    background: linear-gradient(135deg, #fff0f0, #ffe0e0);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; border: 2px solid #ffcccc;
+    transition: border-color 0.15s;
+}
+.cat_icon_item:hover .cat_icon_circle { border-color: #cc0000; }
+.cat_icon_label { font-size: 12px; color: #333; text-align: center; }
+
+/* ── 플래시세일 ──────────────────────────────────────────────── */
+.flash_sec { background: #fff; padding: 16px 24px; margin-top: 8px; }
+.flash_head {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px; flex-wrap: wrap;
+}
+.fh_left { display: flex; align-items: center; gap: 8px; }
+.fh_icon { font-size: 22px; }
+.fh_title { font-size: 20px; font-weight: 900; color: #cc0000; }
+.fh_sub { font-size: 12px; color: #999; }
+.fh_cd { display: flex; align-items: center; gap: 4px; }
+.cd_label { font-size: 12px; color: #666; }
+.cd_block {
+    background: #cc0000; color: #fff; padding: 4px 9px;
+    font-size: 18px; font-weight: 700; border-radius: 3px;
+    font-variant-numeric: tabular-nums;
+}
+.cd_sep { font-size: 18px; font-weight: 900; color: #cc0000; }
+.fh_more {
+    margin-left: auto; font-size: 13px; color: #cc0000;
+    background: none; border: 1px solid #cc0000;
+    padding: 4px 14px; cursor: pointer; border-radius: 2px;
+}
+.fh_more:hover { background: #cc0000; color: #fff; }
+
+.flash_grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.flash_card {
+    border: 1px solid #ffdddd; border-radius: 6px; overflow: hidden;
+    cursor: pointer; transition: all 0.15s; background: #fff;
+}
+.flash_card:hover { box-shadow: 0 4px 16px rgba(204,0,0,0.15); border-color: #cc0000; }
+.fc_img {
+    height: 130px; background: linear-gradient(135deg, #fff5f5, #ffeeee);
+    display: flex; align-items: center; justify-content: center; font-size: 52px;
+}
+.fc_body { padding: 10px 12px; }
+.fc_name { font-size: 13px; color: #333; margin-bottom: 6px;
+    display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.fc_price_row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; }
+.fc_price { font-size: 20px; font-weight: 900; color: #cc0000; }
+.fc_orig { font-size: 12px; color: #aaa; text-decoration: line-through; }
+.fc_bar_wrap { background: #f5f5f5; height: 5px; border-radius: 3px; margin-bottom: 4px; }
+.fc_bar { background: linear-gradient(90deg, #ff6000, #cc0000); height: 100%; border-radius: 3px; }
+.fc_sold { font-size: 11px; color: #999; }
+
+/* ── 라이브 쇼핑 ─────────────────────────────────────────────── */
+.live_sec { background: #fff; padding: 16px 24px; margin-top: 8px; }
+.ls_head { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.live_dot {
+    width: 10px; height: 10px; background: #cc0000;
+    border-radius: 50%; animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+    0%,100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+}
+.ls_title { font-size: 18px; font-weight: 700; }
+.ls_sub { font-size: 12px; color: #cc0000; background: #fff0f0; padding: 2px 8px; border-radius: 10px; }
+
+.live_list { display: flex; gap: 12px; overflow-x: auto; }
+.live_card {
+    flex-shrink: 0; width: 140px; cursor: pointer;
+    border: 1px solid #eee; border-radius: 8px; overflow: hidden;
+    transition: all 0.15s;
+}
+.live_card:hover { border-color: #cc0000; box-shadow: 0 2px 8px rgba(204,0,0,0.1); }
+.lc_preview {
+    height: 90px; background: linear-gradient(135deg, #1a1a1a, #333);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; font-size: 40px;
+}
+.lc_emoji { font-size: 40px; }
+.lc_badge {
+    position: absolute; top: 6px; left: 6px;
+    background: #cc0000; color: #fff;
+    font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px;
+}
+.lc_soon { background: #888; }
+.lc_name { font-size: 12px; color: #333; padding: 6px 8px 2px; }
+.lc_viewers { font-size: 11px; color: #999; padding: 0 8px 8px; }
+
+/* ── 인기 상품 섹션 ──────────────────────────────────────────── */
+.hot_sec { background: #fff; padding: 16px 24px; margin-top: 8px; }
+.section_head {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 16px; flex-wrap: wrap;
+}
+.sh_icon { font-size: 20px; }
+.sec_title { font-size: 20px; font-weight: 700; }
+.sec_sub { font-size: 12px; color: #999; flex: 1; }
+.sec_more {
+    font-size: 13px; color: #cc0000; background: none; border: none;
+    cursor: pointer; padding: 0;
+}
+.sec_more:hover { text-decoration: underline; }
+
+.hot_grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.hot_card {
+    border: 1px solid #eee; border-radius: 6px; overflow: hidden;
+    cursor: pointer; transition: all 0.15s;
+}
+.hot_card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.hc_img {
+    height: 140px; background: #fafafa;
+    display: flex; align-items: center; justify-content: center; font-size: 56px;
+}
+.hc_body { padding: 10px 12px; }
+.hc_name { font-size: 13px; color: #333; margin-bottom: 4px;
+    display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.hc_sold { font-size: 11px; color: #999; margin-bottom: 4px; }
+.hc_price { font-size: 18px; font-weight: 900; color: #cc0000; margin-bottom: 6px; }
+.hc_badges { display: flex; gap: 4px; flex-wrap: wrap; }
+.hc_free { font-size: 10px; background: #e8f5e9; color: #2e7d32; padding: 2px 6px; border-radius: 2px; }
+.hc_auth { font-size: 10px; background: #e3f2fd; color: #1565c0; padding: 2px 6px; border-radius: 2px; }
+.hc_hot { font-size: 10px; background: #fff3e0; color: #e65100; padding: 2px 6px; border-radius: 2px; }
+
+/* ── 추천 상품 그리드 ──────────────────────────────────────────── */
+.recommend_sec { padding: 16px 24px; margin-top: 8px; }
+.product_grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; }
+.card {
+    background: #fff; border: 1px solid #eee; border-radius: 6px;
+    overflow: hidden; cursor: pointer; position: relative; transition: all 0.15s;
+}
+.card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); border-color: #cc0000; }
+.card_sale_badge {
+    position: absolute; top: 8px; left: 8px;
+    background: #cc0000; color: #fff; font-size: 11px; font-weight: 900;
+    padding: 3px 7px; border-radius: 3px;
+}
+.card_hot_badge {
+    position: absolute; top: 8px; right: 8px;
+    background: #ff6000; color: #fff; font-size: 10px; font-weight: 700;
+    padding: 2px 6px; border-radius: 3px;
+}
+.card_img {
+    height: 150px; background: #fafafa;
+    display: flex; align-items: center; justify-content: center; font-size: 56px;
+}
+.card_body { padding: 10px; }
+.c_name { font-size: 13px; color: #333; margin-bottom: 3px; line-height: 1.4;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.c_sold { font-size: 11px; color: #999; margin-bottom: 4px; }
+.c_price_row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px; }
+.c_price { font-size: 18px; font-weight: 900; color: #cc0000; }
+.c_orig { font-size: 12px; color: #bbb; text-decoration: line-through; }
+.c_badges { display: flex; gap: 3px; flex-wrap: wrap; margin-bottom: 4px; }
+.cb_free { font-size: 10px; background: #e8f5e9; color: #2e7d32; padding: 1px 5px; border-radius: 2px; }
+.cb_sale { font-size: 10px; background: #fff3e0; color: #e65100; padding: 1px 5px; border-radius: 2px; }
+.cb_auth { font-size: 10px; background: #e3f2fd; color: #1565c0; padding: 1px 5px; border-radius: 2px; }
+.c_spec { font-size: 11px; color: #bbb; }
+
+/* ── 플로팅 서비스 버튼 ───────────────────────────────────────── */
+.float_service {
+    position: fixed; right: 20px; bottom: 80px;
+    display: flex; flex-direction: column; gap: 4px; z-index: 100;
+}
+.fs_item {
+    background: #fff; border: 1px solid #ddd; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 6px; padding: 8px 10px; text-align: center;
+    cursor: pointer; font-size: 16px; transition: all 0.15s;
+}
+.fs_item span { display: block; font-size: 10px; color: #666; margin-top: 2px; }
+.fs_item:hover { border-color: #cc0000; background: #fff9f9; }
+.service_tooltip {
+    position: absolute; right: 56px; bottom: 0;
+    background: #fff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 10px 14px; font-size: 12px; white-space: nowrap;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15); color: #333;
+}
+.tooltip_close { background: none; border: none; font-size: 14px; cursor: pointer; margin-left: 8px; color: #999; }
+.sh_tag { cursor: pointer; }
+.sh_tag:hover { background: #a80000 !important; color: #fff !important; }
+
+/* ── 푸터 ────────────────────────────────────────────────────── */
+.footer { background: #2d2d2d; color: rgba(255,255,255,0.7); padding: 32px 24px 20px; margin-top: 8px; }
+.footer_grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 32px; margin-bottom: 20px; }
+.f_logo { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.f_text { font-size: 12px; line-height: 1.8; }
+.f_head { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 8px; border-bottom: 1px solid #444; padding-bottom: 6px; }
+.f_link { font-size: 12px; cursor: pointer; margin-bottom: 4px; }
+.f_link:hover { color: #fff; }
+.f_bottom { font-size: 11px; color: rgba(255,255,255,0.4); border-top: 1px solid #444; padding-top: 16px; }
+
+@media (max-width: 768px) {
+    .cat_grid { grid-template-columns: repeat(5, 1fr); }
+    .flash_grid { grid-template-columns: repeat(2, 1fr); }
+    .hot_grid { grid-template-columns: repeat(2, 1fr); }
+    .product_grid { grid-template-columns: repeat(2, 1fr); }
+    .footer_grid { grid-template-columns: 1fr; }
+    .red_header { position: sticky; top: 0; z-index: 100; }
+    .float_service { right: 10px; bottom: 60px; }
+}
+
+
+/* ── 产地证明 (酒仙网 RCA: 细节越多假酒越难) ── */
+.c_origin_cn { font-size:11px; color:#999; margin:2px 0; line-height:1.3; }
+.c_tasting_cn {
+    font-size:11px; color:#555; line-height:1.4; margin:2px 0 3px;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+}
+.hc_origin { font-size:11px; color:#999; margin:2px 0; }

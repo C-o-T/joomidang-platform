@@ -1,0 +1,17 @@
+spring.application.name=backend
+
+# 서버 포트
+server.port=8080
+
+# DB 연결 (실제 값으로 교체)
+spring.datasource.driver-class-name=net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+spring.datasource.url=jdbc:log4jdbc:mariadb://localhost:3306/joomidang?useUTF8=true&characterEncoding=UTF-8
+spring.datasource.username=your_db_username
+spring.datasource.password=your_db_password
+
+# MyBatis
+mybatis.mapper-locations=classpath:mapper/**/*.xml
+
+# 파일 업로드
+spring.servlet.multipart.max-file-size=10MB
+spring.servlet.multipart.max-request-size=10MB

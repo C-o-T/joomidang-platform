@@ -1,0 +1,143 @@
+/* CSS Reset */
+html, body, div, span, h1, h2, h3, h4, h5, h6, p,
+a, abbr, address, code, em, img, ins, q, s, small,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, footer, header, nav, section {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+article, aside, footer, header, nav, section {
+    display: block;
+}
+
+ol, ul { list-style: none; }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* { box-sizing: border-box; }
+
+/* ================================================================
+ * Theme System - CSS Custom Properties
+ * 나라 선택 시 data-theme 속성이 <html>에 적용되어 테마가 바뀜
+ * ================================================================ */
+
+/* 기본값 (Default / Global - 현재 다크 미니멀 스타일) */
+:root {
+    --primary:            #1a1a1a;
+    --primary-hover:      #333;
+    --primary-text:       #fff;
+    --navbar-accent-bar:  transparent;
+    --hero-bg:            linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    --hero-text:          #fff;
+    --hero-sub-color:     #888;
+    --hero-desc-color:    #aaa;
+    --hero-btn-bg:        #fff;
+    --hero-btn-text:      #1a1a1a;
+    --card-radius:        10px;
+    --grid-min:           200px;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+}
+
+/* ── JP 테마: 楽天(Rakuten) / Yahoo!ショッピング 스타일 ─────────────
+   특징: 적색 계열, 정보 밀집, 소형 카드, 박시한 모서리 */
+[data-theme="jp"] {
+    --primary:            #bf0000;
+    --primary-hover:      #990000;
+    --navbar-accent-bar:  #bf0000;
+    --hero-bg:            linear-gradient(135deg, #bf0000 0%, #7a0000 100%);
+    --hero-sub-color:     rgba(255,255,255,0.65);
+    --hero-desc-color:    rgba(255,255,255,0.82);
+    --card-radius:        4px;
+    --grid-min:           165px;
+    --font-body: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', -apple-system, sans-serif;
+}
+
+/* ── CN 테마: 淘宝(Taobao) / 天猫(Tmall) 스타일 ────────────────────
+   특징: 오렌지/골드 그라데이션, 화려함, 정보 밀집 */
+[data-theme="cn"] {
+    --primary:            #ff5000;
+    --primary-hover:      #e03d00;
+    --navbar-accent-bar:  #ff5000;
+    --hero-bg:            linear-gradient(135deg, #cc1500 0%, #ff5000 55%, #ff8c00 100%);
+    --hero-sub-color:     rgba(255,255,255,0.75);
+    --hero-desc-color:    rgba(255,255,255,0.92);
+    --card-radius:        4px;
+    --grid-min:           170px;
+    --font-body: 'PingFang SC', 'Microsoft YaHei', 'Noto Sans SC', -apple-system, sans-serif;
+}
+
+/* ── KR 테마: 네이버 스마트스토어 / 쿠팡 스타일 ───────────────────
+   특징: 초록 포인트, 다크 네이비 배경, 실용적 레이아웃 */
+[data-theme="kr"] {
+    --primary:            #03c75a;
+    --primary-hover:      #02a84a;
+    --navbar-accent-bar:  #03c75a;
+    --hero-bg:            linear-gradient(135deg, #0d1b2a 0%, #1a4731 100%);
+    --hero-sub-color:     rgba(255,255,255,0.60);
+    --hero-desc-color:    rgba(255,255,255,0.78);
+    --card-radius:        8px;
+    --grid-min:           185px;
+    --font-body: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ── SEA 테마: Shopee(쇼피) / Lazada 스타일 ────────────────────────
+   특징: 시그니처 오렌지 그라데이션, 따뜻하고 활기참 */
+[data-theme="sea"] {
+    --primary:            #ee4d2d;
+    --primary-hover:      #d43a1c;
+    --navbar-accent-bar:  #ee4d2d;
+    --hero-bg:            linear-gradient(135deg, #c23516 0%, #ee4d2d 50%, #ff7337 100%);
+    --hero-sub-color:     rgba(255,255,255,0.72);
+    --hero-desc-color:    rgba(255,255,255,0.92);
+    --card-radius:        8px;
+    --grid-min:           170px;
+}
+
+/* ── US 테마: Amazon / Shopify 스타일 ──────────────────────────────
+   특징: 다크 네이비, 청록 포인트, 아마존 오렌지 상단바, 넓은 카드 */
+[data-theme="us"] {
+    --primary:            #007185;
+    --primary-hover:      #005e6e;
+    --navbar-accent-bar:  #ff9900;
+    --hero-bg:            linear-gradient(135deg, #232f3e 0%, #37475a 100%);
+    --hero-sub-color:     #9ba8b4;
+    --hero-desc-color:    #bcc5cd;
+    --card-radius:        8px;
+    --grid-min:           220px;
+    --font-body: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ── EU 테마: ASOS / Zalando 에디토리얼 스타일 ─────────────────────
+   특징: 밝은 크림 배경에 다크 텍스트 (역전), 날카로운 각, 여백 강조 */
+[data-theme="eu"] {
+    --primary:            #1a1a1a;
+    --primary-hover:      #000;
+    --navbar-accent-bar:  #1a1a1a;
+    --hero-bg:            linear-gradient(160deg, #f5f0eb 0%, #e8ddd0 100%);
+    --hero-text:          #1a1a1a;
+    --hero-sub-color:     #777;
+    --hero-desc-color:    #555;
+    --hero-btn-bg:        #1a1a1a;
+    --hero-btn-text:      #fff;
+    --card-radius:        0px;
+    --grid-min:           240px;
+    --font-body: 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Global */
+body {
+    font-family: var(--font-body, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif);
+    color: #1a1a1a;
+    background-color: #fafafa;
+    line-height: 1.5;
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; }

@@ -1,0 +1,226 @@
+/* ── 헤더 래퍼: 테마별 상단 컬러 바 ──────────────────────────────── */
+.header_wrap {
+    border-top: 3px solid var(--navbar-accent-bar, transparent);
+}
+
+/* ── 메인 네비게이션 바 ───────────────────────────────────────────── */
+.navbar_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 48px;
+    height: 64px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #1a1a1a;
+    flex-shrink: 0;
+}
+
+.logo span {
+    font-size: 12px;
+    font-weight: 400;
+    color: #999;
+    margin-left: 8px;
+}
+
+.nav_right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav_link {
+    font-size: 14px;
+    color: #555;
+    transition: color 0.15s;
+    white-space: nowrap;
+}
+
+.nav_link:hover { color: #1a1a1a; }
+
+/* 회원가입 버튼 - 테마 primary 색상 사용 */
+.join_btn {
+    background: var(--primary, #1a1a1a);
+    color: var(--primary-text, #fff);
+    padding: 9px 18px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+
+.join_btn:hover { background: var(--primary-hover, #333); }
+
+.export_btn {
+    background: #0f3460;
+    color: #fff;
+    padding: 7px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background 0.15s;
+}
+
+.export_btn:hover { background: #16213e; color: #fff; }
+
+.logout_btn {
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-size: 13px;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.logout_btn:hover { border-color: #999; color: #1a1a1a; }
+
+/* ── 언어 / 국가 선택 드롭다운 공통 ─────────────────────────────── */
+.lang_selector {
+    position: relative;
+}
+
+.lang_btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: none;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 13px;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.lang_btn:hover { border-color: #999; color: #1a1a1a; }
+
+.lang_dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    overflow: hidden;
+    min-width: 130px;
+    z-index: 200;
+}
+
+/* 국가 드롭다운: 6개 선택지만 있으므로 스크롤 불필요, 넓게 */
+.country_dropdown {
+    min-width: 240px;
+    max-height: none;
+    overflow-y: visible;
+}
+
+/* 국가 옵션 - 이름 + 테마 설명 2행 */
+.country_opt {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px !important;
+    text-align: left !important;
+}
+.co_flag { font-size: 18px; flex-shrink: 0; }
+.co_info { display: flex; flex-direction: column; gap: 2px; }
+.co_name { font-size: 13px; font-weight: 600; color: #1a1a1a; }
+.co_theme { font-size: 10px; color: #999; }
+
+/* 스크롤바 스타일 (webkit) */
+.country_dropdown::-webkit-scrollbar { width: 4px; }
+.country_dropdown::-webkit-scrollbar-track { background: #f9f9f9; }
+.country_dropdown::-webkit-scrollbar-thumb { background: #ddd; border-radius: 2px; }
+
+/* 국가 드롭다운 상단 테마 배지 */
+.theme_badge {
+    padding: 8px 16px 6px;
+    font-size: 11px;
+    color: var(--primary, #888);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid #f0f0f0;
+    background: #fafafa;
+}
+
+.lang_opt {
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: left;
+    font-size: 13px;
+    color: #444;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.lang_opt:last-child { border-bottom: none; }
+.lang_opt:hover { background: #f9f9f9; }
+
+/* 현재 선택된 항목 - 테마 primary 색상 */
+.lang_active {
+    background: #f5f5f5;
+    font-weight: 600;
+    color: var(--primary, #1a1a1a);
+}
+
+/* ── 카테고리 바 (Navbar에서 사용하는 경우) ──────────────────────── */
+.category_bar {
+    display: flex;
+    padding: 0 48px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    overflow-x: auto;
+}
+
+.cat_btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 13px 18px;
+    font-size: 14px;
+    color: #666;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.cat_btn:hover { color: #1a1a1a; }
+
+/* 선택된 카테고리 탭 - 테마 primary 색상 */
+.cat_btn.active {
+    color: var(--primary, #1a1a1a);
+    font-weight: 600;
+    border-bottom-color: var(--primary, #1a1a1a);
+}
+
+/* ── 반응형 ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .navbar_top { padding: 0 16px; }
+    .nav_right { gap: 10px; }
+    .join_btn { padding: 7px 12px; font-size: 12px; }
+    .category_bar { padding: 0 16px; }
+    .cat_btn { padding: 10px 12px; font-size: 13px; }
+    .lang_btn { font-size: 12px; padding: 5px 8px; }
+}

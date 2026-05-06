@@ -1,0 +1,256 @@
+/* SEA 테마 - Shopee / Lazada 스타일
+   바우처 수령 배너 / 오렌지 히어로 / 카테고리 아이콘 / 플래시세일 진행바 / 코인 배지 */
+
+.wrapper { background: #fff6f4; min-height: 100vh; font-size: 13px; }
+
+.geo_bar { display: flex; justify-content: flex-end; padding: 6px 16px; background: #fff; border-bottom: 1px solid #f0e0d8; }
+
+/* ── 바우처 수령 배너 ──────────────────────────────────────────── */
+.voucher_strip { background: #fff; border-bottom: 2px solid #ee4d2d; padding: 10px 0; }
+.vs_inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.vs_title { font-size: 14px; font-weight: 900; color: #ee4d2d; flex-shrink: 0; }
+.voucher_list { display: flex; gap: 8px; flex: 1; flex-wrap: wrap; }
+.voucher_card {
+    display: flex; align-items: center; gap: 8px;
+    border: 1.5px dashed #ee4d2d; border-radius: 6px;
+    padding: 6px 12px; background: #fff9f8;
+    transition: all 0.15s; cursor: default;
+}
+.claimed { border-color: #ccc; background: #f9f9f9; opacity: 0.7; }
+.vc_emoji { font-size: 18px; }
+.vc_info {}
+.vc_type { font-size: 14px; font-weight: 900; color: #ee4d2d; line-height: 1; }
+.vc_desc { font-size: 11px; color: #333; }
+.vc_min { font-size: 10px; color: #888; }
+.vc_btn {
+    padding: 4px 12px; border: 1.5px solid #ee4d2d;
+    background: #ee4d2d; color: #fff;
+    font-size: 11px; font-weight: 700; cursor: pointer; border-radius: 3px;
+    white-space: nowrap; transition: all 0.15s;
+}
+.vc_btn:hover { opacity: 0.9; }
+.vc_claimed { background: #ccc; border-color: #ccc; cursor: default; }
+.vs_more {
+    background: #ee4d2d; color: #fff; border: none;
+    padding: 6px 16px; font-size: 12px; font-weight: 700;
+    cursor: pointer; border-radius: 4px; flex-shrink: 0;
+    transition: opacity 0.15s;
+}
+.vs_more:hover { opacity: 0.9; }
+
+/* ── 히어로 ──────────────────────────────────────────────────── */
+.hero {
+    background: linear-gradient(135deg, #ee4d2d 0%, #ff6f47 40%, #ffaa40 100%);
+    padding: 36px 24px; display: flex; gap: 24px; align-items: center;
+}
+.hero_left { flex: 1; color: #fff; }
+.hero_badge_row { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+.hero_badge_shopee {
+    background: #fff; color: #ee4d2d; font-size: 12px; font-weight: 900;
+    padding: 2px 10px; border-radius: 10px;
+}
+.hero_badge_new {
+    background: rgba(0,0,0,0.2); color: #fff; font-size: 11px;
+    padding: 2px 10px; border-radius: 10px;
+}
+.hero_title { font-size: 28px; font-weight: 900; margin-bottom: 8px; line-height: 1.3; white-space: pre-line; text-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+.hero_desc { font-size: 14px; opacity: 0.9; margin-bottom: 14px; line-height: 1.6; }
+.hero_coins {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.15); border-radius: 20px;
+    padding: 6px 14px; width: fit-content; margin-bottom: 16px; backdrop-filter: blur(4px);
+}
+.coin_icon { font-size: 18px; }
+.coin_text { font-size: 13px; color: #fff; }
+
+.hero_btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.hero_btn_main {
+    background: #fff; color: #ee4d2d; border: none;
+    padding: 12px 28px; font-size: 15px; font-weight: 900;
+    cursor: pointer; border-radius: 24px; transition: all 0.15s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.hero_btn_main:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.2); }
+.hero_btn_ghost {
+    background: rgba(255,255,255,0.2); color: #fff;
+    border: 1.5px solid rgba(255,255,255,0.5); padding: 12px 24px;
+    font-size: 14px; cursor: pointer; border-radius: 24px; transition: all 0.15s;
+    backdrop-filter: blur(4px);
+}
+.hero_btn_ghost:hover { background: rgba(255,255,255,0.3); }
+
+.hero_right { flex-shrink: 0; display: flex; flex-direction: column; gap: 12px; }
+.hero_stats_grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;
+}
+.hsg_item {
+    background: rgba(255,255,255,0.2); border-radius: 8px;
+    padding: 10px 14px; text-align: center; backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.25); min-width: 80px;
+}
+.hsg_val { font-size: 18px; font-weight: 900; color: #fff; }
+.hsg_label { font-size: 10px; color: rgba(255,255,255,0.8); }
+.hero_promo_box {
+    background: rgba(0,0,0,0.2); border-radius: 8px;
+    padding: 12px 16px; backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.hpb_top { font-size: 11px; color: rgba(255,255,255,0.8); margin-bottom: 4px; }
+.hpb_val { font-size: 18px; font-weight: 900; color: #fff; margin-bottom: 3px; }
+.hpb_sub { font-size: 11px; color: rgba(255,255,255,0.8); }
+
+/* ── 카테고리 아이콘 ─────────────────────────────────────────── */
+.cat_sec { background: #fff; padding: 16px 20px; }
+.cat_grid { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+.cat_item {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    cursor: pointer; flex-shrink: 0; padding: 6px 10px;
+    border-radius: 10px; transition: background 0.15s;
+}
+.cat_item:hover { background: #fff6f4; }
+.cat_circle {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: linear-gradient(135deg, #fff6f4, #ffe0d8);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; border: 2px solid rgba(238,77,45,0.2);
+    transition: all 0.15s;
+}
+.cat_item:hover .cat_circle { border-color: #ee4d2d; box-shadow: 0 2px 8px rgba(238,77,45,0.2); }
+.cat_label { font-size: 11px; color: #444; white-space: nowrap; }
+
+/* ── 플래시세일 ──────────────────────────────────────────────── */
+.flash_sec { background: #fff; margin-top: 8px; padding: 16px 20px; }
+.flash_header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap;
+}
+.fh_left { display: flex; align-items: center; gap: 6px; }
+.fh_label { font-size: 22px; }
+.fh_title { font-size: 20px; font-weight: 900; color: #ee4d2d; }
+.fh_cd { display: flex; align-items: center; gap: 3px; }
+.cd_box {
+    background: #ee4d2d; color: #fff; padding: 4px 8px;
+    font-size: 16px; font-weight: 700; border-radius: 4px;
+    font-variant-numeric: tabular-nums;
+}
+.cd_sep { font-size: 16px; font-weight: 900; color: #ee4d2d; }
+.fh_all {
+    margin-left: auto; color: #ee4d2d; font-size: 13px; font-weight: 700;
+    background: none; border: none; cursor: pointer;
+}
+.fh_all:hover { text-decoration: underline; }
+
+.flash_items { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
+.flash_item {
+    flex-shrink: 0; width: 130px; cursor: pointer;
+    border: 1px solid #eee; border-radius: 8px; overflow: hidden;
+    background: #fff; transition: all 0.15s;
+}
+.flash_item:hover { box-shadow: 0 4px 14px rgba(238,77,45,0.15); border-color: #ee4d2d; }
+.fi_img {
+    height: 110px; background: #fff6f4;
+    display: flex; align-items: center; justify-content: center; font-size: 46px;
+}
+.fi_name { font-size: 12px; color: #333; padding: 6px 8px 2px;
+    display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+.fi_price { font-size: 15px; font-weight: 900; color: #ee4d2d; padding: 0 8px 2px; }
+.fi_discount { font-size: 11px; color: #888; padding: 0 8px 4px; }
+.fi_bar_wrap { background: #f5f5f5; height: 5px; margin: 0 8px 3px; border-radius: 3px; }
+.fi_bar { background: linear-gradient(90deg, #ee4d2d, #ff6f47); height: 100%; border-radius: 3px; }
+.fi_sold { font-size: 10px; color: #ee4d2d; padding: 0 8px 8px; font-weight: 600; }
+
+/* ── 필터 바 ─────────────────────────────────────────────────── */
+.filter_nav {
+    background: #fff; border-top: 1px solid #f0f0f0;
+    display: flex; overflow-x: auto; padding: 0 20px;
+    gap: 0; margin-top: 8px;
+}
+.fn_btn {
+    padding: 10px 16px; border: none; background: none;
+    font-size: 13px; color: #555; cursor: pointer; white-space: nowrap;
+    border-bottom: 2px solid transparent; transition: all 0.15s;
+}
+.fn_btn:hover { color: #ee4d2d; }
+.fn_active { color: #ee4d2d; border-bottom-color: #ee4d2d; font-weight: 700; }
+
+/* ── 상품 섹션 ───────────────────────────────────────────────── */
+.products_sec { padding: 16px 20px; }
+.ps_head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.ps_title { font-size: 18px; font-weight: 700; flex: 1; }
+.ps_count { font-size: 12px; color: #888; }
+
+.product_grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 8px; }
+.card {
+    background: #fff; border-radius: 8px; overflow: hidden;
+    cursor: pointer; position: relative; transition: all 0.2s;
+    border: 1px solid #f0f0f0;
+}
+.card:hover { box-shadow: 0 6px 18px rgba(238,77,45,0.12); transform: translateY(-2px); }
+.sale_badge {
+    position: absolute; top: 8px; left: 8px; z-index: 2;
+    background: #ee4d2d; color: #fff; font-size: 11px; font-weight: 900;
+    padding: 2px 7px; border-radius: 3px;
+}
+.card_img {
+    height: 150px; background: #fff6f4;
+    display: flex; align-items: center; justify-content: center; font-size: 60px;
+}
+.card_body { padding: 10px; }
+.c_name { font-size: 13px; color: #333; margin-bottom: 3px; line-height: 1.4;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.c_sold { font-size: 11px; color: #aaa; margin-bottom: 4px; }
+.c_price_row { display: flex; align-items: baseline; gap: 6px; margin-bottom: 6px; }
+.c_price { font-size: 16px; font-weight: 900; color: #ee4d2d; }
+.c_orig { font-size: 11px; color: #ccc; text-decoration: line-through; }
+.c_badges { display: flex; gap: 3px; flex-wrap: wrap; margin-bottom: 4px; }
+.b_free { font-size: 10px; background: #f0fff4; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-weight: 600; }
+.b_coin { font-size: 10px; background: #fff8e1; color: #f57c00; padding: 2px 6px; border-radius: 3px; font-weight: 600; }
+.b_top { font-size: 10px; background: #fff3e0; color: #e65100; padding: 2px 6px; border-radius: 3px; font-weight: 600; }
+.c_spec { font-size: 11px; color: #ccc; }
+
+/* ── 앱 배너 ─────────────────────────────────────────────────── */
+.app_banner {
+    background: linear-gradient(135deg, #ee4d2d, #ff6f47);
+    display: flex; align-items: center; gap: 16px;
+    padding: 20px 24px; margin: 8px 0; flex-wrap: wrap;
+}
+.ab_icon { font-size: 36px; }
+.ab_title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+.ab_sub { font-size: 12px; color: rgba(255,255,255,0.85); }
+.ab_btn {
+    margin-left: auto; background: #fff; color: #ee4d2d;
+    border: none; padding: 10px 24px; font-size: 14px; font-weight: 700;
+    cursor: pointer; border-radius: 20px; transition: all 0.15s;
+    flex-shrink: 0;
+}
+.ab_btn:hover { transform: scale(1.03); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+/* ── 푸터 ────────────────────────────────────────────────────── */
+.footer { background: #222; color: rgba(255,255,255,0.65); padding: 28px 24px 16px; }
+.footer_row { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto 20px; }
+.f_logo { font-size: 18px; font-weight: 900; color: #ee4d2d; margin-bottom: 4px; }
+.f_sub { font-size: 12px; color: rgba(255,255,255,0.5); }
+.f_head { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.f_link { font-size: 12px; cursor: pointer; margin-bottom: 3px; }
+.f_link:hover { color: #fff; }
+.f_copy { font-size: 11px; color: rgba(255,255,255,0.3); border-top: 1px solid #444; padding-top: 14px; text-align: center; }
+
+@media (max-width: 768px) {
+    .hero { flex-direction: column; }
+    .hero_right { flex-direction: row; width: 100%; }
+    .hero_stats_grid { flex: 1; }
+    .product_grid { grid-template-columns: repeat(2, 1fr); }
+    .footer_row { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+    .product_grid { grid-template-columns: repeat(2, 1fr); }
+    .flash_items { gap: 8px; }
+    .footer_row { grid-template-columns: 1fr; }
+}
+
+
+/* ── 산지 + 페어링 (Shopee RCA: accessible discovery) ── */
+.c_region_sea { font-size:11px; color:#999; margin:2px 0; }
+.c_pairing_sea { font-size:11px; color:#555; margin:2px 0; }
